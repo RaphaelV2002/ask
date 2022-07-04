@@ -1,2 +1,3 @@
 ALLOWED_HOSTS = ['*']
 DEBUG = True
+INSTALLED_APPS = ('qa',)
