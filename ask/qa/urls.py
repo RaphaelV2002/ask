@@ -1,10 +1,10 @@
-from django.urls import url, include
+from django.urls import re_path, include
 urlpatterns = [
-url(r'^$', views.test),
-url(r'^login/', views.test),
-url(r'^signup/', views.test),
-url(r'^question/<123>/', views.test),
-url(r'^ask/', views.test),
-url(r'^popular/', views.test),
-url(r'^new/', views.test),
+re_path(r'^$', views.test),
+re_path(r'^login/', views.test),
+re_path(r'^signup/', views.test),
+re_path(r'^question/<123>/', views.test),
+re_path(r'^ask/', views.test),
+re_path(r'^popular/', views.test),
+re_path(r'^new/', views.test),
 ]
