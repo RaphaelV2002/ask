@@ -1,10 +1,10 @@
 from django.urls import url, include
 urlpatterns = [
-url(r'^$', include('qa.urls')),
-url(r'^login/', include('qa.urls')),
-url(r'^signup/', include('qa.urls')),
-url(r'^question/<123>/', include('qa.urls')),
-url(r'^ask/', include('qa.urls')),
-url(r'^popular/', include('qa.urls')),
-url(r'^new/', include('qa.urls')),
+url(r'^$', views.test),
+url(r'^login/', views.test),
+url(r'^signup/', views.test),
+url(r'^question/<123>/', views.test),
+url(r'^ask/', views.test),
+url(r'^popular/', views.test),
+url(r'^new/', views.test),
 ]
