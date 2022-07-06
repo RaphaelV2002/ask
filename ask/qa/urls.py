@@ -1,10 +1,10 @@
-from django.urls import re_path, include
-urlpatterns = [
-re_path(r'^$', views.test),
-re_path(r'^login/', views.test),
-re_path(r'^signup/', views.test),
-re_path(r'^question/<123>/', views.test),
-re_path(r'^ask/', views.test),
-re_path(r'^popular/', views.test),
-re_path(r'^new/', views.test),
-]
+from django.urls import url, include
+urlpatterns = patterns('qa.views',                                              
+   url(r'^$', 'test'),                                                              
+   url(r'^login/.*$', 'test', name='login'),                                    
+   url(r'^signup/.*', 'test', name='signup'),                                   
+   url(r'^question/(?P<id>[0-9]+)/$', 'test', name='question'),                 
+   url(r'^ask/.*', 'test', name='ask'),                                         
+   url(r'^popular/.*', 'test', name='popular'),                                 
+   url(r'^new/.*', 'test', name='new'),                                         
+)
