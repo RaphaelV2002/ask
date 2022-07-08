@@ -1,5 +1,7 @@
-from views import test
 from django.urls import re_path, include
+from django.http import HttpResponse 
+def test(request, *args, **kwargs):
+    return HttpResponse('200')
 urlpatterns = [                                 
    re_path(r'^$', test),                                                              
    re_path(r'^login/.*$', test, name='login'),                                    
