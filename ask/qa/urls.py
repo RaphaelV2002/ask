@@ -1,11 +1,11 @@
-from views.py import test
+from views import test
 from django.urls import url, include
 urlpatterns = patterns('qa.views',                                              
-   url(r'^$', test),                                                              
-   url(r'^login/.*$', test, name='login'),                                    
-   url(r'^signup/.*', test, name='signup'),                                   
-   url(r'^question/(?P<id>[0-9]+)/$', test, name='question'),                 
-   url(r'^ask/.*', test, name='ask'),                                         
-   url(r'^popular/.*', test, name='popular'),                                 
-   url(r'^new/.*', test, name='new'),                                         
+   re_path(r'^$', test),                                                              
+   re_path(r'^login/.*$', test, name='login'),                                    
+   re_path(r'^signup/.*', test, name='signup'),                                   
+   re_path(r'^question/(?P<id>[0-9]+)/$', test, name='question'),                 
+   re_path(r'^ask/.*', test, name='ask'),                                         
+   re_path(r'^popular/.*', test, name='popular'),                                 
+   re_path(r'^new/.*', test, name='new'),                                         
 )
