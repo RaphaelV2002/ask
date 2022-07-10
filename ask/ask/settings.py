@@ -78,6 +78,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': os.path.join(BASE_DIR, 'ask.mysql'),
         'USER': 'box',
+        'PASSWORD': 'password',
     }
 }
 
