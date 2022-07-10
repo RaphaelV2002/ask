@@ -8,7 +8,7 @@ sudo python3 -m pip install django==2.0
 sudo python3 -m pip install mysqlclient
 
 sudo /etc/init.d/mysql start
-mysql -uroot -e "CREATE DATABASE stepic_web;"
-mysql -uroot -e "GRANT ALL PRIVILEGES ON stepic_web.* TO 'box'@'localhost' WITH GRANT OPTION;"
+mysql -uroot -e "CREATE DATABASE ask;"
+mysql -uroot -e "GRANT ALL PRIVILEGES ON ask.* TO 'box'@'localhost' WITH GRANT OPTION;"
 ~/web/ask/manage.py makemigrations
 ~/web/ask/manage.py migrate
