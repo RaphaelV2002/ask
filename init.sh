@@ -9,7 +9,7 @@ sudo python3 -m pip install mysqlclient
 sudo pip3 install pathlib
 
 sudo /etc/init.d/mysql start
-mysql -uroot -e "CREATE DATABASE db;"
-mysql -uroot -e "GRANT ALL PRIVILEGES ON db.* TO 'box'@'localhost' WITH GRANT OPTION;"
+mysql -uroot -e "CREATE DATABASE ask;"
+mysql -uroot -e "GRANT ALL PRIVILEGES ON ask.* TO 'box'@'localhost' WITH GRANT OPTION;"
 ~/web/ask/manage.py makemigrations
 ~/web/ask/manage.py migrate
