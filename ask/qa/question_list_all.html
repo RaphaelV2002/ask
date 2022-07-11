@@ -1,0 +1,4 @@
+<h1>{{ question.category.title }} - {{ question.title }}</h1>
+{% for question in question.all %}
+<a href="{{ question.get_url }}">{{ question }}</a>
+{% endfor %}

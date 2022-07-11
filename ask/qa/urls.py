@@ -1,8 +1,8 @@
 from django.urls import re_path, include
 from django.http import HttpResponse
-from qa.views import test
+from views import test, question_list_all
 urlpatterns = [                                 
-   re_path(r'^$', test),                                                              
+   re_path(r'^$', question_list_all),                                                              
    re_path(r'^login/.*$', test, name='login'),                                    
    re_path(r'^signup/.*', test, name='signup'),                                   
    re_path(r'^question/(?P<id>[0-9]+)/$', test, name='question'),                 
