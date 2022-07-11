@@ -1,13 +1,12 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse 
 from django.core.paginator import Paginator
-from models import Question, QuestionManager
-
+from . import views
 def test(request, *args, **kwargs):
     return HttpResponse('200')
 
 def question_list_all(request):
-    questions = Question.objects.new()
+    questions = views.Question.objects.new()
     limit = request.GET.get('limit', 10)
     page = request.GET.get('page', 1)
     paginator = Paginator(questions, limit)
