@@ -16,7 +16,7 @@ class Question(models.Model):
 class Answer(models.Model):
     text = models.TextField()
     added_at = models.DateTimeField(blank = True, auto_now_add=True)
-    question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name="answers", related_query_name="answer")
+    question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name="answer", related_query_name="answers")
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     class Meta:
         order_with_respect_to = 'question'
