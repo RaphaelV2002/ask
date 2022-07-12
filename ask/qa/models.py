@@ -18,5 +18,3 @@ class Answer(models.Model):
     added_at = models.DateTimeField(blank = True, auto_now_add=True)
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    class Meta:
-        order_with_respect_to = 'question'
