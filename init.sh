@@ -8,7 +8,6 @@ sudo python3 -m pip install django==2.0
 sudo python3 -m pip install mysqlclient
 sudo pip3 install pathlib
 
-sudo python3 /home/box/web/ask/manage.py runserver 0.0.0.0:80
 sudo /etc/init.d/mysql start
 mysql -uroot -e "CREATE DATABASE ask;"
 mysql -uroot -e "CREATE USER 'box'@'localhost' IDENTIFIED BY 'password';"
@@ -17,3 +16,4 @@ mysql -uroot -e "GRANT RELOAD ON *.* TO 'box'@'localhost';"
 mysql -uroot -e "FLUSH   PRIVILEGES;"
 ~/web/ask/manage.py makemigrations qa
 ~/web/ask/manage.py migrate
+sudo python3 /home/box/web/ask/manage.py runserver 0.0.0.0:80
