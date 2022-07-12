@@ -27,8 +27,8 @@ def rating_question_list_all(request):
         'questions': page.object_list,
         'paginator': paginator, 'page': page,
     })
-def question(request, id):
-    question = get_object_or_404(models.Question, id=id)
+def question(request, pk):
+    question = get_object_or_404(models.Question, pk=pk)
     return render(request, 'question.html', {
         'question': question
     })
