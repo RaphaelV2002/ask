@@ -1,7 +1,6 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse 
+from django.http import HttpResponse
 from django.core.paginator import Paginator
-from . import views
 from . import models
 def test(request, *args, **kwargs):
     return HttpResponse('200')
@@ -27,6 +26,11 @@ def rating_question_list_all(request):
     return render(request, 'popular.html', {
         'questions': page.object_list,
         'paginator': paginator, 'page': page,
+    })
+def question(request, id):
+    question = get_object_or_404(models.Question, id=id)
+    return render(request, 'popular.html', {
+        'question': question
     })
 
 
