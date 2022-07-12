@@ -13,7 +13,7 @@ def question_list_all(request):
     paginator = Paginator(questions, limit)
     paginator.baseurl = 'qa/all_questions/?page='
     page = paginator.page(page) # Page
-    return render(request, 'qa\question_by_new.html', {
+    return render(request, "C:\home\box\web\ask\qa\question_by_new.html", {
         'posts': page.object_list,
         'paginator': paginator, 'page': page,
     })
