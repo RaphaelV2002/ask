@@ -6,15 +6,27 @@ from . import models
 def test(request, *args, **kwargs):
     return HttpResponse('200')
 
-def question_list_all(request):
+def new_question_list_all(request):
     questions = models.Question.objects.new()
     limit = request.GET.get('limit', 10)
     page = request.GET.get('page', 1)
     paginator = Paginator(questions, limit)
-    paginator.baseurl = 'qa/all_questions/?page='
+    paginator.baseurl = 'qa/home/?page='
     page = paginator.page(page) # Page
-    return render(request, '/home/box/web/ask/qa/question_by_new.html', {
+    return render(request, 'home.html', {
         'questions': page.object_list,
         'paginator': paginator, 'page': page,
     })
+def rating_question_list_all(request):
+    questions = models.Question.objects.popular()
+    limit = request.GET.get('limit', 10)
+    page = request.GET.get('page', 1)
+    paginator = Paginator(questions, limit)
+    paginator.baseurl = 'qa/popular/?page='
+    page = paginator.page(page) # Page
+    return render(request, 'popular.html', {
+        'questions': page.object_list,
+        'paginator': paginator, 'page': page,
+    })
+
 
