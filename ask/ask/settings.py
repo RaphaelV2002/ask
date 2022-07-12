@@ -81,6 +81,14 @@ DATABASES = {
         'PASSWORD': 'password',
         'HOST': 'localhost',
         'PORT': '',
+        'OPTIONS' : {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            'init_command': "CREATE DATABASE ask;",
+            'init_command': "CREATE USER 'box'@'localhost' IDENTIFIED BY 'password';",
+            'init_command': "GRANT ALL PRIVILEGES ON ask.* TO 'box'@'localhost' WITH GRANT OPTION;",
+            'init_command': "FLUSH   PRIVILEGES;"
+            },
+    
     }
 }
 
