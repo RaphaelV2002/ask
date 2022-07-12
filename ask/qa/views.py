@@ -29,7 +29,7 @@ def rating_question_list_all(request):
     })
 def question(request, id):
     question = get_object_or_404(models.Question, id=id)
-    return render(request, 'popular.html', {
+    return render(request, 'question.html', {
         'question': question
     })
 
