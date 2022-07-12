@@ -1,10 +1,12 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.core.paginator import Paginator
+from django.views.decorators.http import require_GET
 from . import models
 def test(request, *args, **kwargs):
     return HttpResponse('200')
 
+@require_GET
 def new_question_list_all(request):
     questions = models.Question.objects.new()
     limit = request.GET.get('limit', 10)
