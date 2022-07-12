@@ -1,24 +1,16 @@
-{% for question in question_list %}
-<h2>
-  <a href="{{ question.get_absolute_url }}">
-    {{ question.title }}
-  </a>
-</h2>
+{% for quest in questions %}
+  <a href="{{quest.id}}"> {{quest.title}} </a><br>
 {% endfor %}
-<div class="pagination">
-    <span class="step-links">
-        {% if page_obj.has_previous %}
-            <a href="?page=1">&laquo; first</a>
-            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-        {% endif %}
 
-        <span class="current">
-            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-        </span>
-
-        {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">next</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-        {% endif %}
-    </span>
-</div>
+<nav><ul class="pagination">
+    {% for p in paginator.page_range %}
+    {% if p.number == page.number %}
+    <li class="active">
+    {% else %}
+    <li>
+    {% endif %}
+        <a href="{{ paginator.baseurl }}{{ p }}">
+        {{ p }}</a>
+</li>
+{% endfor %}
+</ul></nav>
