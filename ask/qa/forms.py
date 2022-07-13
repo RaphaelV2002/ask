@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from dataclasses import fields
 from django import forms, ModelForm
 from . import models
 class AskForm(forms.Form):
