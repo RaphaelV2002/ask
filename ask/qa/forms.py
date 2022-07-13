@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from django import forms
+from dataclasses import fields
+from django import forms, ModelForm
 from . import models
 class AskForm(forms.Form):
     title = forms.CharField(max_length=100)
@@ -17,17 +18,8 @@ class AskForm(forms.Form):
         question.save()
         return question
 
-class AnswerForm(forms.Form):
-    text = forms.CharField(widget=forms.Textarea)
+class AnswerForm(ModelForm):
+    class Meta:
+        model = models.Answer
+        fields = ['text', 'question']
 
-    # def clean_text(self):
-    #     text = self.cleaned_data['text']
-    #     if not text.is_valid():
-    #         raise forms.ValidationError(
-    #             u'Сообщение не корректно', code=12)
-    #     return text + \
-    #             "\nThank you for your attention."
-    def save(self):
-        answer = models.Answer(**self.cleaned_data)
-        answer.save()
-        return answer
