@@ -1,5 +1,5 @@
 {{question.title}}
 {{question.text}}
 {% for answ in question.answer_set.all() %}
-    {{answ.text}}
+    <li>{{answ.text}}</li>
 {% endfor %}
