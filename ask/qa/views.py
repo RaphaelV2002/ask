@@ -1,13 +1,14 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.core.paginator import Paginator
 from django.views.decorators.http import require_GET
 from . import models
+from . import forms
 def test(request, *args, **kwargs):
     return HttpResponse('200')
 
 @require_GET
-def new_question_list_all(request):
+def home(request):
     questions = models.Question.objects.new()
     limit = request.GET.get('limit', 10)
     page = request.GET.get('page', 1)
@@ -18,7 +19,7 @@ def new_question_list_all(request):
         'questions': page.object_list,
         'paginator': paginator, 'page': page,
     })
-def rating_question_list_all(request):
+def popular(request):
     questions = models.Question.objects.popular()
     limit = request.GET.get('limit', 10)
     page = request.GET.get('page', 1)
@@ -35,4 +36,28 @@ def question(request, id):
         'question': question
     })
 
+def ask(request):
+    if request.method == "POST":
+        form = forms.AskForm(request.POST)
+        if form.is_valid():
+            post = form.save()
+            url = post.get_url()
+            return HttpResponseRedirect(url)
+    else:
+        form = forms.AskForm()
+    return render(request, 'ask.html', {
+        'form': form
+    })
 
+def answer(request):
+    if request.method == "POST":
+        form = forms.AnswerForm(request.POST)
+        if form.is_valid():
+            post = form.save()
+            url = post.get_url()
+            return HttpResponseRedirect(url)
+    else:
+        form = forms.AnswerForm()
+    return render(request, 'answer.html', {
+        'form': form
+    })
