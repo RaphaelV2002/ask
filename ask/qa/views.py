@@ -13,7 +13,7 @@ def home(request):
     limit = request.GET.get('limit', 10)
     page = request.GET.get('page', 1)
     paginator = Paginator(questions, limit)
-    paginator.baseurl = 'qa/home/?page='
+    paginator.baseurl = 'home/?page='
     page = paginator.page(page) # Page
     return render(request, 'home.html', {
         'questions': page.object_list,

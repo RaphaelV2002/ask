@@ -1,3 +1,6 @@
+{% block title %}Home{% endblock %}
+<a href="\popular"> popular </a><br>
+<a href="\ask"> ask </a><br>
 {% for quest in questions %}
   <a href="{{quest.id}}"> {{quest.title}} </a><br>
 {% endfor %}
@@ -14,3 +17,4 @@
 </li>
 {% endfor %}
 </ul></nav>
+ 
