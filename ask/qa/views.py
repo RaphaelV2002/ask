@@ -1,7 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.paginator import Paginator
 from django.views.decorators.http import require_GET
+from django.urls import reverse
 from . import models
 from . import forms
 def test(request, *args, **kwargs):
@@ -40,9 +41,8 @@ def ask(request):
     if request.method == "POST":
         form = forms.AskForm(request.POST)
         if form.is_valid():
-            post = form.save()
-            url = post.get_url()
-            return HttpResponseRedirect(url)
+            question = form.save()
+            return HttpResponseRedirect(reverse('qa:question', args=(question.id,)))
     else:
         form = forms.AskForm()
     return render(request, 'ask.html', {
