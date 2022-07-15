@@ -42,7 +42,7 @@ def ask(request):
         form = forms.AskForm(request.POST)
         if form.is_valid():
             question = form.save()
-            return HttpResponseRedirect(reverse('qa:question', args=(question.id,)))
+            return HttpResponseRedirect(reverse('question',  kwargs={'id': question.id}))
     else:
         form = forms.AskForm()
     return render(request, 'ask.html', {
