@@ -3,12 +3,13 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.core.paginator import Paginator
 from django.views.decorators.http import require_GET
 from django.urls import reverse
+from django.views.decorators.csrf import csrf_exempt
+
 from . import models
 from . import forms
 def test(request, *args, **kwargs):
     return HttpResponse('200')
 
-@require_GET
 def home(request):
     questions = models.Question.objects.new()
     limit = request.GET.get('limit', 10)
@@ -36,7 +37,6 @@ def question(request, id):
     return render(request, 'question.html', {
         'question': question
     })
-
 def ask(request):
     if request.method == "POST":
         form = forms.AskForm(request.POST)
