@@ -2,7 +2,6 @@
     <div class="alert alert-danger">{{ e }}</div>
 {% endfor %}
 <form class="form-horizontal" method="post" action="{% url 'question' question.id}">
-    {% csrf_token %}
     {{ form.as_p }}
     {% comment %} <fieldset>
         {% for field in form %}
