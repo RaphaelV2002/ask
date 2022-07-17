@@ -37,7 +37,6 @@ def question(request, id):
     return render(request, 'question.html', {
         'question': question
     })
-@csrf_exempt
 def ask(request):
     if request.method == "POST":
         form = forms.AskForm(request.POST)
