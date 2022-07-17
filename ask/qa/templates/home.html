@@ -1,9 +1,9 @@
-{% block title %}Home{% endblock %}
-<a href="/popular"> popular </a><br>
-<a href="/ask/"> ask </a><br>
-<a href="/new"> new </a><br>
+{% block title %}Home{% endblock %}<br>
+<a href="/popular"> Популярные вопросы </a><br>
+<a href="/ask/"> Задать вопрос </a><br>
+<a href="/new"> Новые вопросы </a><br>
 {% for quest in questions %}
-  <a href="{{quest.id}}"> {{quest.title}} </a><br>
+  <a href="{% url 'question'  quest.id %}"> {{quest.title}} </a><br>
 {% endfor %}
 
 <nav><ul class="pagination">

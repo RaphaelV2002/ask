@@ -1,25 +1,17 @@
-{{question.title}}
+{{question.title}}<br>
 {{question.text}}
 {% for answ in question.answer_set.all %}
     <li>{{answ.text}}</li>
 {% endfor %}
 
-{% for e in form.non_field_errors %}
+{% comment %} {% for e in form.non_field_errors %}
     <div class="alert alert-danger">{{ e }}</div>
 {% endfor %}
-<form class="form-horizontal" method="post" action="/question/{{question_id}}">
+<form class="form-horizontal" method="post" action="">
     {% csrf_token %}
-    <fieldset>
-        {% for field in form %}
-            <div class="control-group
-                {% if field.errors %}has-error{% endif %}">
-                <label class="control-label">{{ field.label }}</label>
-                <div class="controls">{{ field }}</div>
-            </div>
-        {% endfor %}
-    </fieldset>
+    {{ form.as_p }}
     <div class="form-actions">
         <button type="submit" class="btn btn-primary">
         Сохранить</button>
     </div>
-</form>
+</form> {% endcomment %}
