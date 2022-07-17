@@ -1,1 +1,4 @@
 .vscode/launch.json
+ask\ask\__pycache__
+ask\qa\__pycache__
+ask\qa\migrations
