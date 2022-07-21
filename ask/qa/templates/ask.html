@@ -2,8 +2,8 @@
     <div class="alert alert-danger">{{ e }}</div>
 {% endfor %}
 <form class="form-horizontal" method="post">
-    {% csrf_token %}
     {{ form.as_p }}
+    {% csrf_token %}
     <div class="form-actions">
         <button type="submit" class="btn btn-primary">
         Сохранить</button>
