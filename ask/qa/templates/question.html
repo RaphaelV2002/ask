@@ -1,17 +1,17 @@
 {{question.title}}<br>
 {{question.text}}
-{% for answ in question.answer_set.all %}
+{% for answ in answers %}
     <li>{{answ.text}}</li>
 {% endfor %}
 
-{% comment %} {% for e in form.non_field_errors %}
+{% for e in form.non_field_errors %}
     <div class="alert alert-danger">{{ e }}</div>
 {% endfor %}
-<form class="form-horizontal" method="post" action="">
-    {% csrf_token %}
+<form class="form-horizontal" method="post">
     {{ form.as_p }}
+    {% csrf_token %}
     <div class="form-actions">
         <button type="submit" class="btn btn-primary">
         Сохранить</button>
     </div>
-</form> {% endcomment %}
+</form>

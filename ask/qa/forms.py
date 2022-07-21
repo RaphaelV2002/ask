@@ -24,5 +24,5 @@ class AskForm(ModelForm):
 class AnswerForm(ModelForm):
     class Meta:
         model = models.Answer
-        fields = ['text', 'question']
+        fields = ['text']
 

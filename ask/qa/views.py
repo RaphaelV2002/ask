@@ -49,15 +49,20 @@ def ask(request):
         'form': form
     })
 
-def answer(request):
+def answer(request, id):
+    question = get_object_or_404(models.Question, pk=id)
+    answers = question.answers.all()
     if request.method == "POST":
         form = forms.AnswerForm(request.POST)
         if form.is_valid():
-            post = form.save()
-            url = post.get_url()
-            return HttpResponseRedirect(url)
+            post = form.save(commit=False)
+            post.question = question 
+            post.save()
+            return HttpResponseRedirect(reverse('question',  kwargs={'id': question.id}) )
     else:
         form = forms.AnswerForm()
-    return render(request, 'answer.html', {
-        'form': form
+    return render(request, 'question.html', {
+        'form': form,
+        'answers': answers,
+        'question': question
     })
