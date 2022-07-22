@@ -2,9 +2,11 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.paginator import Paginator
 from django.views.decorators.http import require_GET
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.views.decorators.csrf import csrf_exempt
-
+from django.contrib.auth import views
+from django.contrib.auth.forms import UserCreationForm
+from django.views import generic
 from . import models
 from . import forms
 def test(request, *args, **kwargs):
@@ -37,11 +39,28 @@ def question(request, id):
     return render(request, 'question.html', {
         'question': question
     })
+
+class SignUpView(generic.CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy("login")
+    template_name = "registration\signup.html"
+
+
+
+
+
+
+
+
+
+@csrf_exempt
 def ask(request):
     if request.method == "POST":
         form = forms.AskForm(request.POST)
         if form.is_valid():
-            question = form.save()
+            question = form.save(commit=False)
+            question.author = request.user
+            question.save()
             return HttpResponseRedirect(reverse('question',  kwargs={'id': question.id}))
     else:
         form = forms.AskForm()
@@ -51,12 +70,14 @@ def ask(request):
 
 def answer(request, id):
     question = get_object_or_404(models.Question, pk=id)
+
     answers = question.answers.all()
     if request.method == "POST":
         form = forms.AnswerForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
             post.question = question 
+            post.author = request.user
             post.save()
             return HttpResponseRedirect(reverse('question',  kwargs={'id': question.id}) )
     else:

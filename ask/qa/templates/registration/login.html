@@ -1,11 +1,3 @@
-{{question.title}}<br>
-<b>{{question.author}}</b><br>
-{{question.text}}
-{% for answ in answers %}
-    <li><b>{{answ.author}}</b> 
-        {{answ.text}}</li>
-{% endfor %}
-
 {% for e in form.non_field_errors %}
     <div class="alert alert-danger">{{ e }}</div>
 {% endfor %}

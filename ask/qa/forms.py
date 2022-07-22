@@ -6,23 +6,14 @@ class AskForm(ModelForm):
     class Meta:
         model = models.Question
         fields = ['title', 'text']
-    # title = forms.CharField(max_length=100)
-    # text = forms.CharField(widget=forms.Textarea)
-
-    # # def clean_text(self):
-    # #     text = self.cleaned_data['text']
-    # #     if not text.is_valid():
-    # #         raise forms.ValidationError(
-    # #             u'Сообщение не корректно', code=12)
-    # #     return text + \
-    # #             "\nThank you for your attention."
-    # def save(self):
-    #     question = models.Question(**self.cleaned_data)
-    #     question.save()
-    #     return question
 
 class AnswerForm(ModelForm):
     class Meta:
         model = models.Answer
         fields = ['text', 'question']
+
+class LoginForm(ModelForm):
+    class Meta:
+        model = models.User
+        fields = ['username', 'password']
 

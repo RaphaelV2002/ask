@@ -30,25 +30,23 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'qa.apps.QaConfig',
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
-    # 'django.contrib.sessions',
-    # 'django.contrib.messages',
+    'django.contrib.sessions',
+    'django.contrib.messages',
     # 'django.contrib.staticfiles',
 ]
 
-MIDDLEWARE_CLASSES = (                                                          
-    # 'django.contrib.sessions.middleware.SessionMiddleware',                     
-    # 'django.middleware.common.CommonMiddleware',                                
-    'django.middleware.csrf.CsrfViewMiddleware',                               
-    # 'django.contrib.auth.middleware.AuthenticationMiddleware',                 
-    # 'django.contrib.auth.middleware.SessionAuthenticationMiddleware',          
-    # 'django.contrib.messages.middleware.MessageMiddleware',                     
-    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',                  
-    # 'django.middleware.security.SecurityMiddleware',                           
+MIDDLEWARE  = (
+    'django.contrib.sessions.middleware.SessionMiddleware',                                                          
+    'django.middleware.security.SecurityMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',                         
 )
-
 ROOT_URLCONF = 'ask.urls'
 
 TEMPLATES = [
@@ -90,18 +88,18 @@ DATABASES = {
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    # },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    # },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    # },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    # },
 ]
 
 
@@ -128,3 +126,5 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL =  '/'
