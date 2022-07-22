@@ -50,7 +50,7 @@ def signup(request):
             return HttpResponseRedirect(reverse('login'))
     else:
         form = forms.SignUpForm()
-    return render(request, 'registration\signup.html', {
+    return render(request, 'registration/signup.html', {
         'form': form
     })
 
