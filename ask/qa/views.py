@@ -40,10 +40,19 @@ def question(request, id):
         'question': question
     })
 
-class SignUpView(generic.CreateView):
-    form_class = UserCreationForm
-    success_url = reverse_lazy("login")
-    template_name = "registration\signup.html"
+def signup(request):
+    if request.method == "POST":
+        form = forms.SignUpForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.set_password(form.cleaned_data['password'])
+            post.save()
+            return HttpResponseRedirect(reverse('login'))
+    else:
+        form = forms.SignUpForm()
+    return render(request, 'registration\signup.html', {
+        'form': form
+    })
 
 
 
