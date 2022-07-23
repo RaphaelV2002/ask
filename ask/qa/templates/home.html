@@ -4,6 +4,7 @@
 <a href="/new/"> Новые вопросы </a><br>
 <a href="/login/"> Войти </a><br>
 <a href="/signup/"> Зарегистрироваться </a><br>
+<a href="/admin/"> Администратор </a><br>
 {% for quest in questions %}
   <a href="{% url 'question'  quest.id %}"> {{quest.title}} </a><br>
 {% endfor %}
