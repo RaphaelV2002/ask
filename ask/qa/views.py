@@ -1,16 +1,13 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponseRedirect
 from django.core.paginator import Paginator
-from django.views.decorators.http import require_GET
-from django.urls import reverse, reverse_lazy
+from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import views
-from django.contrib.auth.forms import UserCreationForm
-from django.views import generic
 from . import models
 from . import forms
-def test(request, *args, **kwargs):
-    return HttpResponse('200')
+# def test(request, *args, **kwargs):
+#     return HttpResponse('200')
 
 def home(request):
     questions = models.Question.objects.new()
