@@ -2,8 +2,8 @@
 <a href="/popular/"> Популярные вопросы </a><br>
 <a href="/ask/"> Задать вопрос </a><br>
 <a href="/new/"> Новые вопросы </a><br>
-<a href="/login/"> Войти </a><br>
-<a href="/signup/"> Зарегистрироваться </a><br>
+{% comment %} <a href="/login/"> Войти </a><br>
+<a href="/signup/"> Зарегистрироваться </a><br> {% endcomment %}
 {% for quest in questions %}
   <a href="{% url 'question'  quest.id %}"> {{quest.title}} </a><br>
 {% endfor %}

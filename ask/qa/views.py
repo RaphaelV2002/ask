@@ -36,20 +36,20 @@ def popular(request):
     })
 
 
-def signup(request):
-    if request.method == "POST":
-        form = forms.SignUpForm(request.POST)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.set_password(form.cleaned_data['password'])
-            post.save()
-            views.LoginView(request, post)
-            return HttpResponseRedirect(reverse('login'))
-    else:
-        form = forms.SignUpForm()
-    return render(request, 'registration/signup.html', {
-        'form': form
-    })
+# def signup(request):
+#     if request.method == "POST":
+#         form = forms.SignUpForm(request.POST)
+#         if form.is_valid():
+#             post = form.save(commit=False)
+#             post.set_password(form.cleaned_data['password'])
+#             post.save()
+#             views.LoginView(request, post)
+#             return HttpResponseRedirect(reverse('login'))
+#     else:
+#         form = forms.SignUpForm()
+#     return render(request, 'registration/signup.html', {
+#         'form': form
+#     })
 
 
 
@@ -65,7 +65,7 @@ def ask(request):
         form = forms.AskForm(request.POST)
         if form.is_valid():
             question = form.save(commit=False)
-            question.author = request.user
+            # question.author = request.user
             question.save()
             return HttpResponseRedirect(reverse('home',  kwargs={'id': question.id}))
     else:
@@ -83,7 +83,7 @@ def answer(request, id):
         if form.is_valid():
             post = form.save(commit=False)
             post.question = question 
-            post.author = request.user
+            # post.author = request.user
             post.save()
             return HttpResponseRedirect(reverse('home',  kwargs={'id': question.id}) )
     else:
