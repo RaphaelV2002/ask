@@ -43,7 +43,7 @@ def signup(request):
             post = form.save(commit=False)
             post.set_password(form.cleaned_data['password'])
             post.save()
-            views.login(request, post)
+            views.LoginView(request, post)
             return HttpResponseRedirect(reverse('login'))
     else:
         form = forms.SignUpForm()
