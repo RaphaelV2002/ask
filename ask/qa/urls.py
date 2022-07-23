@@ -8,6 +8,6 @@ urlpatterns = [
    path('signup/', views.signup, name='signup'),                                   
    path('question/<int:id>', views.answer, name='question'),                 
    path('ask/', views.ask, name='ask'),                                         
-   path('popular', views.popular, name='popular'),                                 
-   path('new', views.test, name='new'),                                         
+   path('popular/', views.popular, name='popular'),                                 
+   path('new/', views.test, name='new'),                                         
 ]

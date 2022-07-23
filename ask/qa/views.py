@@ -34,11 +34,7 @@ def popular(request):
         'questions': page.object_list,
         'paginator': paginator, 'page': page,
     })
-def question(request, id):
-    question = get_object_or_404(models.Question, pk=id)
-    return render(request, 'question.html', {
-        'question': question
-    })
+
 
 def signup(request):
     if request.method == "POST":
@@ -71,7 +67,7 @@ def ask(request):
             question = form.save(commit=False)
             question.author = request.user
             question.save()
-            return HttpResponseRedirect(reverse('question',  kwargs={'id': question.id}))
+            return HttpResponseRedirect(reverse('home',  kwargs={'id': question.id}))
     else:
         form = forms.AskForm()
     return render(request, 'ask.html', {
@@ -89,7 +85,7 @@ def answer(request, id):
             post.question = question 
             post.author = request.user
             post.save()
-            return HttpResponseRedirect(reverse('question',  kwargs={'id': question.id}) )
+            return HttpResponseRedirect(reverse('home',  kwargs={'id': question.id}) )
     else:
         form = forms.AnswerForm()
     return render(request, 'question.html', {
