@@ -1,5 +1,5 @@
-from django.urls import path, include
-from django.http import HttpResponse
+from django.urls import path
+
 from . import views
 
 urlpatterns = [                      
@@ -15,7 +15,5 @@ urlpatterns = [
          views.delete_answer,
          name='delete_answer'),
    path('ask/', views.ask, name='ask'),                                         
-   path('popular/', views.popular, name='popular'),   
-   path('questions/ajax/load_more/', views.load_questions,
-         name='load_more')                                                                       
+   path('popular/', views.popular, name='popular'),                                                              
 ]

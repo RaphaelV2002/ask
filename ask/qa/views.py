@@ -91,20 +91,3 @@ def log_out(request, *args, **kwargs):
     logout(request)
     return HttpResponseRedirect('/')
 
-def is_ajax(request):
-    return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
-
-def load_questions(request, *args, **kwargs):
-    """Reterns a portion of questions on ajax request."""
-    if is_ajax(request):
-        start = request.POST.get('questions_num', '15')
-        if start.isdigit():
-            start = int(start)
-        else:
-            start = 15
-        questions = models.Question.objects.all()[start:start+15]
-        data = []
-        for question in questions:
-            data.append(question.to_json())
-        return JsonResponse({'questions': data}, status=200)
-    return JsonResponse({}, status = 500)

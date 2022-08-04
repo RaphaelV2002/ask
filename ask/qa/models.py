@@ -7,7 +7,6 @@ class QuestionManager(models.Manager):
         return self.order_by('-rating')
 class Question(models.Model):
     objects = QuestionManager()
-    #id = models.BigAutoField(primary_key=True)
     title = models.CharField(max_length=50)
     text = models.TextField()
     added_at = models.DateTimeField(blank = True, auto_now_add=True)
