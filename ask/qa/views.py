@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponseRedirect, JsonResponse
+from django.http import HttpResponseRedirect
 from django.core.paginator import Paginator
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
@@ -10,15 +10,26 @@ from . import forms
 
 def home(request):
     questions = models.Question.objects.new()
+    limit = request.GET.get('limit', 10)
+    page = request.GET.get('page', 1)
+    paginator = Paginator(questions, limit)
+    paginator.baseurl = 'question/?page='
+    page = paginator.page(page) # Page
     return render(request, 'home.html', {
-        'questions': questions,
+        'questions': page.object_list,
+        'paginator': paginator, 'page': page,
     })
 def popular(request):
     questions = models.Question.objects.popular()
+    limit = request.GET.get('limit', 10)
+    page = request.GET.get('page', 1)
+    paginator = Paginator(questions, limit)
+    paginator.baseurl = 'qa/popular/?page='
+    page = paginator.page(page) # Page
     return render(request, 'popular.html', {
-        'questions': questions,
+        'questions': page.object_list,
+        'paginator': paginator, 'page': page,
     })
-
 
 def signup(request):
     if request.method == "POST":
