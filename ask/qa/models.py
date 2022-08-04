@@ -8,7 +8,7 @@ class QuestionManager(models.Manager):
 class Question(models.Model):
     objects = QuestionManager()
     #id = models.BigAutoField(primary_key=True)
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=50)
     text = models.TextField()
     added_at = models.DateTimeField(blank = True, auto_now_add=True)
     rating = models.IntegerField(default = 0)

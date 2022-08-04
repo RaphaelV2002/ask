@@ -1,6 +1,10 @@
+{% extends 'base.html' %}
 {% block header	%}
 	{%	include	'header.html' %}
 {% endblock	%}
+
+{% block main %}
+<div class='sign' id='signup'>
 {% for e in form.non_field_errors %}
     <div class="alert alert-danger">{{ e }}</div>
 {% endfor %}
@@ -9,6 +13,8 @@
     {% csrf_token %}
     <div class="form-actions">
         <button type="submit" class="btn btn-primary">
-        Сохранить</button>
+        Зарегистрироваться</button>
     </div>
 </form>
+</div>
+{% endblock	%}

@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.models import User
 from . import models
@@ -11,7 +10,7 @@ class AskForm(ModelForm):
 class AnswerForm(ModelForm):
     class Meta:
         model = models.Answer
-        fields = ['text', 'question']
+        fields = ['text']
 
 class LoginForm(ModelForm):
     class Meta:
@@ -22,3 +21,6 @@ class SignUpForm(ModelForm):
     class Meta:
         model = models.User
         fields = ['username', 'email', 'password']
+        help_texts = {
+            'username': None,
+        }

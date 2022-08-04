@@ -1,22 +1,56 @@
+{% extends 'base.html' %}
 {% block header	%}
 	{%	include	'header.html' %}
 {% endblock	%}
+{% block main %}
+<div class='main_question'>
 {{question.title}}<br>
-<b>{{question.author}}</b><br>
-{{question.text}}
-{% for answ in answers %}
-    <li><b>{{answ.author}}</b> 
-        {{answ.text}}</li>
-{% endfor %}
+<div style=white-space: normal;>
+{{question.text|linebreaks }}<br>
+</div>
+<div id='main_question_meta'>
+    <span id='main_question_author'>{{ question.author }}</span>
+    <span id='main_question_data'>&nbsp;|&nbsp;{{ question.added_at|date:'d.m.Y, H:i' }}</span>
+</div>
+{% if user == question.author %}
+		<form class='delete_button' action='{% url 'delete_question' question_id=question.id %}' method='post'>
+			{% csrf_token %}
+			<button type='submit'>Удалить</button>
+		</form>
+	{% endif %}
+
 
 {% for e in form.non_field_errors %}
     <div class="alert alert-danger">{{ e }}</div>
 {% endfor %}
-<form class="form-horizontal" method="post">
+    {% if user.is_authenticated %}
+<form class="form-horizontal" action='{% url 'question' question_id=question.id %}' method="post">
     {{ form.as_p }}
     {% csrf_token %}
     <div class="form-actions">
         <button type="submit" class="btn btn-primary">
-        Сохранить</button>
+        Ответить</button>
     </div>
-</form>
+    </form>
+    {% else %}
+    <p id='auth_warning'>Для того, чтобы ответить на вопрос нужно <a href='{% url 'login' %}'>войти</a>.</p>
+    {% endif %}
+
+</div>
+
+{% for answer in answers %}
+<div class='main_question answers'>
+    <p class='answer_text'>{{ answer.text }}</p>
+    <div id='main_question_meta'>
+        <span id='main_question_data'>{{ answer.author }}&nbsp;|&nbsp;{{ answer.added_at|date:'d.m.Y, H:i' }}</span>
+    </div>
+    {% if user == answer.author %}
+				<form class='delete_button' action='{% url 'delete_answer' answer_id=answer.id %}' method='post'>
+					{% csrf_token %}
+					{% comment %} <input type='text' style='visibility: hidden;'/> {% endcomment %}
+					<button type='submit'>Удалить</button>
+				</form>
+			{% endif %}
+</div>
+{% endfor %}
+{% endblock	%}
