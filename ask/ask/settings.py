@@ -1,3 +1,4 @@
+# ask/settings.py
 """
 Django settings for ask project.
 
@@ -38,14 +39,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
-MIDDLEWARE  = (
-    'django.contrib.sessions.middleware.SessionMiddleware',                                                          
+MIDDLEWARE = (
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',                         
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 ROOT_URLCONF = 'ask.urls'
 
@@ -79,7 +80,7 @@ DATABASES = {
         'USER': 'box',
         'PASSWORD': 'password',
         'HOST': 'localhost',
-        'PORT': '',   
+        'PORT': '',
     }
 }
 
@@ -131,4 +132,4 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL =  '/'
+LOGIN_REDIRECT_URL = '/'

@@ -1,20 +1,17 @@
+<!-- qa/templates/registration/signup.html -->
 {% extends 'base.html' %}
-{% block header	%}
-	{%	include	'header.html' %}
-{% endblock	%}
-
+{% block header	 %}
+    {%	include	'header.html' %}
+{% endblock	 %}
 {% block main %}
-<div class='sign' id='signup'>
-{% for e in form.non_field_errors %}
-    <div class="alert alert-danger">{{ e }}</div>
-{% endfor %}
-<form class="form-horizontal" method="post">
-    {{ form.as_p }}
-    {% csrf_token %}
-    <div class="form-actions">
-        <button type="submit" class="btn btn-primary">
-        Зарегистрироваться</button>
+    <div class='sign' id='signup'>
+        {% for e in form.non_field_errors %}<div class="alert alert-danger">{{ e }}</div>{% endfor %}
+        <form class="form-horizontal" method="post">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+            </div>
+        </form>
     </div>
-</form>
-</div>
-{% endblock	%}
+{% endblock	 %}

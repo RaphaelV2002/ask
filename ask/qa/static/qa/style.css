@@ -5,7 +5,7 @@
 	--powder-blue: #a8dadcff;
 	--celadon-blue: #457b9dff;
 	--prussian-blue: #1d3557ff;
-	
+
 	--fire-engine-red: #d50b26ff;
 	--cultured: #f4f5f6ff;
 	--jet: #313335ff;
@@ -25,7 +25,7 @@ body {
 .wrapper {
 	max-width: 1000px;
 	margin-left: auto;
-    margin-right: auto;
+	margin-right: auto;
 }
 
 a {
@@ -43,7 +43,7 @@ header {
 }
 
 header nav {
-	padding: 8px 0px;	
+	padding: 8px 0px;
 }
 
 header nav ul {
@@ -57,7 +57,7 @@ header nav li {
 }
 
 header nav li a {
-	color: var(--jet);	
+	color: var(--jet);
 }
 
 header nav li:hover {
@@ -65,7 +65,7 @@ header nav li:hover {
 }
 
 .header_li_left {
-	float: left;	
+	float: left;
 }
 
 .header_li_right {
@@ -81,9 +81,7 @@ header nav li:hover {
 	color: var(--fire-engine-red);
 }
 
-#header_user {
-	
-}
+#header_user {}
 
 
 
@@ -117,11 +115,11 @@ header nav li:hover {
 	font-size: 18px;
 	list-style-type: none;
 	text-decoration: none;
-	
+
 }
 
 .page_navigation ul li {
-	padding: 20px 6px;	
+	padding: 20px 6px;
 }
 
 .page_navigation ul li a:hover {
@@ -139,7 +137,7 @@ header nav li:hover {
 .sign {
 	margin: auto;
 	margin-top: 50px;
-	box-shadow: 0 0 20px rgba(0,0,0,0.3);
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 	border-radius: 4px;
 	display: flex;
 	flex-direction: column;
@@ -154,17 +152,17 @@ header nav li:hover {
 }
 
 .sign h2 {
-	margin-top: 50px; 
+	margin-top: 50px;
 	text-align: center;
 }
 
 .sign form {
 	margin-top: 0px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: 580px;
-    margin-bottom: 0px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	max-width: 580px;
+	margin-bottom: 0px;
 }
 
 .sign figure {
@@ -173,7 +171,7 @@ header nav li:hover {
 }
 
 .sign figcaption {
-	padding: 5px 3px;	
+	padding: 5px 3px;
 }
 
 .sign input {
@@ -181,13 +179,13 @@ header nav li:hover {
 	height: 40px;
 	width: 220px;
 	border-radius: 5px;
-	border: 1px solid rgb(200,200,200);
+	border: 1px solid rgb(200, 200, 200);
 	font-size: 14px;
 	text-indent: 10px;
 }
 
 .sign h5 {
-	margin-top: 10px;	
+	margin-top: 10px;
 	color: var(--imperial-red);
 }
 
@@ -236,7 +234,7 @@ button {
 
 .ask {
 	margin: auto;
-	box-shadow: 0 0 5px rgba(0,0,0,0.3);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 	border-radius: 4px;
 	width: 800px;
 	background-color: white;
@@ -254,18 +252,18 @@ textarea {
 	max-height: 140px;
 	font-size: 26px;
 	border-radius: 5px;
-	border: 1px solid rgb(200,200,200);
+	border: 1px solid rgb(200, 200, 200);
 	text-indent: 5px;
 	resize: none;
 }
 
 textarea::placeholder {
-	font-size: 20px;	
+	font-size: 20px;
 	padding: 5px;
 }
 
 #ask_figure {
-	padding-bottom: 42px;	
+	padding-bottom: 42px;
 }
 
 #ask_button {
@@ -285,7 +283,7 @@ textarea::placeholder {
 
 .main_question {
 	margin: auto;
-	box-shadow: 0 0 5px rgba(0,0,0,0.3);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 	border-radius: 4px;
 	width: 800px;
 	background-color: white;
@@ -297,22 +295,22 @@ textarea::placeholder {
 }
 
 .main_question hr {
-	margin: 20px 36px 10px 36px;	
+	margin: 20px 36px 10px 36px;
 }
 
 #main_question_meta {
-	display: flex; 
+	display: flex;
 	justify-content: flex-end;
 	padding: 10px 15px 5px 10px;
 }
 
 .main_question textarea {
 	font-size: 16px;
-	padding: 5px 5px;	
+	padding: 5px 5px;
 }
 
 .main_question textarea::placeholder {
-	font-size: 16px;	
+	font-size: 16px;
 }
 
 .main_question button {
@@ -329,12 +327,12 @@ textarea::placeholder {
 }
 
 #answer_button {
-	padding-bottom: 20px;	
+	padding-bottom: 20px;
 }
 
 /* Delete answer/question button */
 .delete_button {
-	padding-bottom: 10px;	
+	padding-bottom: 10px;
 }
 
 .delete_button button {
@@ -353,7 +351,7 @@ textarea::placeholder {
 /* Answers to the question */
 .answers {
 	margin: auto;
-	margin-top:	10px;
+	margin-top: 10px;
 }
 
 .answer_meta {
@@ -364,14 +362,15 @@ textarea::placeholder {
 
 .answer_text {
 	padding: 10px 20px 15px 20px;
-	font-size: 16px;	
-  	word-spacing: 1px;
+	font-size: 16px;
+	word-spacing: 1px;
 }
 
 #auth_warning {
 	padding: 5px 20px 20px 15px;
-	font-size: 18px;	
+	font-size: 18px;
 }
+
 #auth_warning a {
 	color: var(--imperial-red);
 	text-decoration: underline;
