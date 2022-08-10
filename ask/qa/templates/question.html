@@ -1,8 +1,8 @@
 <!-- qa/templates/question.html -->
 {% extends 'base.html' %}
-{% block header	 %}
-    {%	include	'header.html' %}
-{% endblock	 %}
+{% block title %}
+    {{ question.title }}
+{% endblock title %}
 {% block main %}
     <div class='main_question'>
         {{ question.title }}

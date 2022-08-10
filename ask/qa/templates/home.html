@@ -1,9 +1,8 @@
 <!-- qa/templates/home.html -->
 {% extends "base.html" %}
-{% block header %}
-    {%	include	"header.html" %}
-{% endblock	 %}
-{% block title %}Home{% endblock %}
+{% block title %}
+    Главная страница
+{% endblock title %}
 <br>
 {% block main %}
     <main>
@@ -17,5 +16,7 @@
                         <p>{{ question.author }} | {{ question.added_at|date:'d.m.Y, H:i' }}</p>
                     </div>
                 {% endfor %}
-            </main>
-        {% endblock	 %}
+            </div>
+        </div>
+    </main>
+{% endblock	 %}

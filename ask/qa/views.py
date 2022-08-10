@@ -1,3 +1,4 @@
+# qa/views.py
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -7,17 +8,9 @@ from . import forms
 
 
 def home(request, *args, **kwargs):
-    """Загружает главную страницу с списком вопросов отсортированным по времени публикации."""
+    """Загружает главную страницу с списком вопросов, отсортированным по времени публикации."""
     questions = models.Question.objects.new()
     return render(request, 'home.html', {
-        'questions': questions,
-    })
-
-
-def popular(request, *args, **kwargs):
-    """Загружает страницу с списком вопросов."""
-    questions = models.Question.objects.popular()
-    return render(request, 'popular.html', {
         'questions': questions,
     })
 
@@ -39,7 +32,7 @@ def ask(request, *args, **kwargs):
 
 
 def question(request, *args, **kwargs):
-    """Загружает страницу вопроса с ответами на него и формой для создания ответа"""
+    """Загружает страницу вопроса с ответами на него и формой для создания ответа."""
     question = get_object_or_404(models.Question, pk=kwargs['question_id'])
     answers = question.answers.all()
     if request.method == "POST":
@@ -60,7 +53,7 @@ def question(request, *args, **kwargs):
 
 
 def delete_question(request, *args, **kwargs):
-    """Удаляет вопрос и направляет на главную страницу"""
+    """Удаляет вопрос и направляет на главную страницу."""
     models.Question.objects.filter(
         pk=kwargs['question_id'],
         author=request.user
@@ -69,7 +62,7 @@ def delete_question(request, *args, **kwargs):
 
 
 def delete_answer(request, *args, **kwargs):
-    """Удаляет ответ и направляет на текущую страницу"""
+    """Удаляет ответ и направляет на текущую страницу."""
     models.Answer.objects.filter(
         pk=kwargs['answer_id'],
         author=request.user

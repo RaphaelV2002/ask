@@ -5,7 +5,7 @@
     <head>
         <meta charset='utf-8'>
         <title>
-            {% block title %}Question&Answer{% endblock %}
+            {% block title %}Question&Answer{% endblock %}  
         </title>
         <meta name='viewport' content='width=device-width'>
         <link rel='stylesheet' type='text/css' href='{% static "qa/style.css" %}'>
@@ -13,7 +13,9 @@
         {% block extrahead %}{% endblock %}
     </head>
     <body>
-        {% block header %}{% endblock %}
+        {% block header %}
+            {%	include	"header.html" %}
+        {% endblock	 %}
         {% block main %}{% endblock %}
     </body>
 </html>

@@ -1,3 +1,4 @@
+# qa/urls.py
 from django.urls import path
 from . import views
 
@@ -8,11 +9,8 @@ urlpatterns = [
     path('logout/', views.log_out, name='logout'),
     path('question/<int:question_id>/', views.question, name='question'),
     path('question/<int:question_id>/delete/',
-         views.delete_question,
-         name='delete_question'),
+         views.delete_question, name='delete_question'),
     path('question/delete_answer/<int:answer_id>/',
-         views.delete_answer,
-         name='delete_answer'),
+         views.delete_answer, name='delete_answer'),
     path('ask/', views.ask, name='ask'),
-    path('popular/', views.popular, name='popular'),
 ]

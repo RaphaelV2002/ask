@@ -1,4 +1,4 @@
-#ask/wsgi.py
+# ask/wsgi.py
 """
 WSGI config for ask project.
 

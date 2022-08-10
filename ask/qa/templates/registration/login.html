@@ -1,8 +1,8 @@
 <!-- qa/templates/registration/login.html -->
 {% extends 'base.html' %}
-{% block header	 %}
-    {%	include	'header.html' %}
-{% endblock	 %}
+{% block title %}
+    Вход
+{% endblock title %}
 {% block main %}
     <div class='sign' id='signin'>
         {% for e in form.non_field_errors %}<div class="alert alert-danger">{{ e }}</div>{% endfor %}
