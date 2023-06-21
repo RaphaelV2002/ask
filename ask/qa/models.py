@@ -1,11 +1,15 @@
 # qa/models.py
 from django.db import models
 from django.contrib.auth.models import User
+from taggit.managers import TaggableManager
 
 
-class QuestionManager(models.Manager): 
+class QuestionManager(models.Manager):
     def new(self):
         return self.order_by('-added_at')
+
+# class Tag(models.Model):
+#     title = models.CharField(max_length=50)
 
 
 class Question(models.Model):
@@ -14,6 +18,7 @@ class Question(models.Model):
     text = models.TextField()
     added_at = models.DateTimeField(blank=True, auto_now_add=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    tags = TaggableManager()
 
 
 class Answer(models.Model):
@@ -22,3 +27,7 @@ class Answer(models.Model):
     question = models.ForeignKey(
         Question, on_delete=models.CASCADE, related_name='answers')
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+
+
+
+    
