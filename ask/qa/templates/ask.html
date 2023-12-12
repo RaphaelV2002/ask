@@ -1,0 +1,23 @@
+<!-- qa/templates/ask.html -->
+{% extends 'base.html' %}
+{% block title %}
+    Задать вопрос
+{% endblock title %}
+{% block main %}
+    <div class='ask'>
+        {% for e in form.non_field_errors %}<div class="alert alert-danger">{{ e }}</div>{% endfor %}
+        {% if user.is_authenticated %}
+            <form class="form-horizontal"  method="post">
+                {{ form.as_p }}
+                {% csrf_token %}
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                </div>
+            </form>
+        {% else %}
+            <p id='auth_warning'>
+                Для того, чтобы задать вопрос нужно <a href='{% url 'login' %}'>войти</a>.
+            </p>
+        {% endif %}
+    </div>
+{% endblock	 %}
