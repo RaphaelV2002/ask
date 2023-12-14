@@ -1,5 +1,7 @@
 .vscode/launch.json
-ask\ask\__pycache__
-ask\qa\__pycache__
-ask\qa\migrations
-ask\db.sqlite3
+.venv
+news\news\__pycache__
+news\blog\__pycache__
+news\blog\migrations
+news\db.sqlite3
+news\media\images

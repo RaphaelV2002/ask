@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ask",
+    "\\ask\\ask",
+    "\\ask\\qa"
   ],
-  "SelectedNode": "\\C:\\home\\box\\web",
+  "SelectedNode": "\\ask\\manage.py",
   "PreviewInSolutionExplorer": false
 }
